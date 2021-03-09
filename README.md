@@ -17,7 +17,7 @@
 
 
 <p> My database logic was create based in how firestorage can connect uniques id's and make them interact with each other,</p>
-<p> I was careful with my app's performance therefore my plans was make it runs as smooth as possible, accomplishing that wasn't easy</p>
+<p> I was careful with my app's performance therefore my plan was make it runs as smooth as possible, accomplishing that wasn't easy</p>
 <p> once there are lots of information to retrieve and upload all the time</p>
 
 #### My own Artistic Touch 

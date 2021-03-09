@@ -24,5 +24,5 @@
 
 <p>I decided to personalize the desing and it looked outstading at the very end, I'm so proud of the final result i got</p>
 
-- Soon I'ma uploading a gift of how it's looking so far 
+- Soon I'ma uploading a gif of how it's looking so far 
 

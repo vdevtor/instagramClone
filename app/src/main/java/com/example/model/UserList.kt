@@ -1,4 +1,4 @@
-package com.example.adapter
+package com.example.model
 
 import android.os.Parcelable
 import com.example.model.User

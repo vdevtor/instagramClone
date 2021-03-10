@@ -114,8 +114,8 @@ private var isFragment: Boolean = false) : RecyclerView.Adapter<UserAdapter.View
     }
 
     private fun checkingFollowingStatus(uid: String, followButton: AppCompatButton) {
-        val userUsing = firebaseAuth.currentUser?.uid
-        val followingRef1 = userUsing?.let { db.document(it).collection("seguindo").document(uid).get() }
+            val userUsing = firebaseAuth.currentUser?.uid
+            val followingRef1 = userUsing?.let { db.document(it).collection("seguindo").document(uid).get() }
 
         followingRef1?.addOnCompleteListener {
           it.result.let {snapshot ->

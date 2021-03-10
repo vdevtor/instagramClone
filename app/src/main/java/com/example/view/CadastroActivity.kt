@@ -91,5 +91,9 @@ class CadastroActivity : AppCompatActivity() {
 
             }
 
+       fireStorage.collection("users").document(currentUserId?:"")
+           .collection("seguindo").document(currentUserId?:"")
+           .set(user)
+
     }
 }

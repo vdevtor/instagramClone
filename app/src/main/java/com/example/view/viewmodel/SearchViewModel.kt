@@ -1,13 +1,10 @@
 package com.example.view.viewmodel
 
 import android.util.Log
-import android.widget.EditText
-import android.widget.SearchView
-import androidx.core.view.isEmpty
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.adapter.UserAdapter
-import com.example.adapter.UserList
+import com.example.model.UserList
 import com.example.model.User
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.firestore.CollectionReference

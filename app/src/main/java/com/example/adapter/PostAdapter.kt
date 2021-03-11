@@ -53,7 +53,7 @@ class PostAdapter(
         var likes: TextView = binding.likes
         var publisher: TextView = binding.publisher
         var description: TextView = binding.description
-        var comments: TextView = binding.comments
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostAdapter.ViewHolder {

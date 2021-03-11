@@ -10,10 +10,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.adapter.PostAdapter
+import com.example.adapter.PostProfileAdapter
 import com.example.instagramclone.R
 import com.example.view.AccountSettingsActivity
 import com.example.instagramclone.databinding.FragmentProfileBinding
+import com.example.model.Post
 import com.example.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -42,6 +47,9 @@ class ProfileFragment : Fragment() {
     }
     private val db2: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val collectionReference: CollectionReference = db2.collection("Posts")
+    private var postAdapter : PostProfileAdapter? = null
+    private var photoList : MutableList<Post>? = null
+    private var postsList : MutableList<Post>? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -69,8 +77,6 @@ class ProfileFragment : Fragment() {
         }
         var getU = getUser()
         userInfo()
-
-
         binding?.editAccountSettingsBtn?.setOnClickListener {
             var getU = getUser()
             if (getButtonText == "Editar Perfil") {
@@ -122,6 +128,23 @@ class ProfileFragment : Fragment() {
                 }
             }
 
+        binding?.recyclerPostsProfile?.apply {
+            val linearLayoutManager = GridLayoutManager(context,3)
+
+
+
+            layoutManager =  linearLayoutManager
+
+            photoList = ArrayList()
+            postAdapter = context?.let{
+                PostProfileAdapter(it, (photoList as ArrayList<Post>).asReversed())
+            }
+            adapter = postAdapter
+            retrievePhotos()
+
+
+        }
+
 
 
         getFollowers()
@@ -163,7 +186,6 @@ class ProfileFragment : Fragment() {
         }
             return userAux
     }
-
     private fun getUser2(): User? {
 
         firebaseAuth.currentUser?.uid?.let {
@@ -276,6 +298,23 @@ class ProfileFragment : Fragment() {
                 }
 
             }
+        }
+    }
+
+    private fun retrievePhotos(){
+        val userUsing = profileId
+        var query1 = collectionReference.whereEqualTo("publisher",userUsing)
+
+        query1.get()?.addOnSuccessListener {
+            if (it.isEmpty) {
+                Toast.makeText(context,"Batman",Toast.LENGTH_SHORT).show()
+            } else {
+                for (document in it) {
+                    val post = document.toObject<Post>()
+                            photoList?.add(post)
+                        }
+                        postAdapter?.notifyDataSetChanged()
+                    }
         }
     }
 

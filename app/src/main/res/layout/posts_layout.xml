@@ -90,8 +90,6 @@
 
         </RelativeLayout>
 
-
-
         <TextView
             android:id="@+id/likes"
             android:layout_width="wrap_content"
@@ -101,6 +99,13 @@
             android:textSize="15dp"
             android:textColor="@color/white"
             />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
 
         <TextView
             android:id="@+id/publisher"
@@ -121,18 +126,18 @@
             android:textColor="@color/white"
             />
 
-        <TextView
-            android:id="@+id/comments"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:textSize="16dp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/white"
-            />
+
 
     </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_commets"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"/>
+
+
+</LinearLayout>
+
 
 
 </com.google.android.material.card.MaterialCardView>

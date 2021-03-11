@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.adapter.PostAdapter
 import com.example.instagramclone.databinding.FragmentHomeBinding
@@ -21,6 +22,7 @@ import com.google.firebase.ktx.Firebase
 class HomeFragment : Fragment() {
     private  var binding: FragmentHomeBinding? = null
     private  var firebaseUser: FirebaseUser? = null
+
     private val firebaseAuth by lazy {
         Firebase.auth
     }
